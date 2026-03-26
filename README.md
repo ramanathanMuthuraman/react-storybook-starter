@@ -1,0 +1,124 @@
+# React Webpack Storybook Starter
+
+A sample React project built with Webpack and plain JavaScript, with Storybook configured for component development and documentation.
+
+## Stack
+
+- React 19
+- Webpack 5
+- Babel
+- Storybook 10
+- JavaScript and JSX only
+- CSS with shared theme tokens
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the app
+
+```bash
+npm start
+```
+
+The Webpack dev server runs on `http://localhost:3000`.
+
+### Start Storybook
+
+```bash
+npm run storybook
+```
+
+Storybook runs on `http://localhost:6006`.
+
+### Create production builds
+
+```bash
+npm run build
+npm run build-storybook
+```
+
+## Available Scripts
+
+- `npm start`: starts the Webpack development server
+- `npm run build`: builds the React app into `dist/`
+- `npm run storybook`: starts Storybook in development mode
+- `npm run build-storybook`: builds static Storybook output into `storybook-static/`
+- `npm test`: placeholder script
+
+## Project Structure
+
+```text
+.storybook/
+  main.js                Storybook main configuration
+  manager.js             Storybook manager theme setup
+  manager-head.html      Manager-only head markup (fonts, head customizations)
+  preview.js             Global preview parameters
+  preview-head.html      Preview iframe head markup
+  storybookTheme.js      Shared Storybook theme and preview parameters
+public/
+  index.html             Webpack HTML template
+  react-logo.svg         Brand asset used by Storybook
+src/
+  components/
+    FeatureCard.jsx      Sample component
+    FeatureCard.css      Sample component styles
+    FeatureCard.stories.js Sample Storybook story
+  theme/
+    colors.json          Single source of truth for color tokens
+    themeVariables.js    Injects CSS custom properties from colors.json
+  App.jsx                Demo page content
+  index.js               React app entry point
+  styles.css             App-level styles
+webpack.config.js        Webpack configuration
+package.json             Scripts and dependencies
+```
+
+## Theming
+
+This project uses a single shared source for color values:
+
+- [`src/theme/colors.json`](/Users/ramanathanm/Coder/storybook/src/theme/colors.json) holds the palette
+- [`src/theme/themeVariables.js`](/Users/ramanathanm/Coder/storybook/src/theme/themeVariables.js) converts those values into CSS variables at runtime
+- [`src/styles.css`](/Users/ramanathanm/Coder/storybook/src/styles.css) and [`src/components/FeatureCard.css`](/Users/ramanathanm/Coder/storybook/src/components/FeatureCard.css) consume those CSS variables
+- [`.storybook/storybookTheme.js`](/Users/ramanathanm/Coder/storybook/.storybook/storybookTheme.js) reads the same `colors.json` file for the Storybook manager and docs theme
+
+This keeps the app UI and Storybook styleguide aligned without duplicating the palette in two different places.
+
+## Storybook Notes
+
+- The sidebar onboarding checklist is disabled in [`.storybook/main.js`](/Users/ramanathanm/Coder/storybook/.storybook/main.js)
+- Storybook branding is configured in [`.storybook/storybookTheme.js`](/Users/ramanathanm/Coder/storybook/.storybook/storybookTheme.js) and [`.storybook/manager.js`](/Users/ramanathanm/Coder/storybook/.storybook/manager.js)
+- Inter is loaded for both the Storybook manager and preview through [`.storybook/manager-head.html`](/Users/ramanathanm/Coder/storybook/.storybook/manager-head.html) and [`.storybook/preview-head.html`](/Users/ramanathanm/Coder/storybook/.storybook/preview-head.html)
+- The generated static Storybook HTML still includes some default Storybook internals, because those come from Storybook's own internal template
+
+## Customizing the Starter
+
+### Add a new component
+
+1. Create a component in `src/components/`
+2. Add its styles if needed
+3. Add a `*.stories.js` file next to the component
+4. Storybook will pick it up automatically from `src/components/**/*.stories.js`
+
+### Update the shared theme
+
+1. Edit `src/theme/colors.json`
+2. Restart the app or Storybook if needed
+3. Both the app and Storybook theme will reflect the updated values
+
+## Output Folders
+
+- `dist/`: production Webpack build
+- `storybook-static/`: static Storybook build
+
+These folders are generated and are already ignored by Git.
