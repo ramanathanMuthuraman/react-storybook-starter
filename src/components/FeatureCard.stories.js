@@ -3,6 +3,11 @@ import FeatureCard from './FeatureCard';
 const meta = {
   title: 'Components/FeatureCard',
   component: FeatureCard,
+  parameters: {
+    backgrounds: {
+      default: 'Canvas',
+    },
+  },
   args: {
     title: 'Storybook-ready component',
     description: 'Use this story as a starting point for your own React components and UI states.',

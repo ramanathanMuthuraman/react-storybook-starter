@@ -1,15 +1,15 @@
 .feature-card {
   padding: 1.5rem;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(82, 96, 109, 0.12);
-  box-shadow: 0 22px 45px rgba(31, 41, 51, 0.08);
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: 0 22px 45px var(--color-shadow);
   backdrop-filter: blur(10px);
 }
 
 .feature-card--highlight {
-  background: linear-gradient(135deg, #fff0d9 0%, #ffffff 100%);
-  border-color: rgba(159, 91, 45, 0.25);
+  background: linear-gradient(135deg, var(--color-surface-highlight-start) 0%, var(--color-surface-highlight-end) 100%);
+  border-color: var(--color-border-accent);
 }
 
 .feature-card__tag {
@@ -17,8 +17,8 @@
   margin-bottom: 0.85rem;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: #1f2933;
-  color: #fff;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -29,10 +29,11 @@
   margin: 0 0 0.75rem;
   font-size: 1.35rem;
   line-height: 1.1;
+  color: var(--color-ink-strong);
 }
 
 .feature-card p {
   margin: 0;
-  color: #52606d;
+  color: var(--color-ink-muted);
   line-height: 1.65;
 }

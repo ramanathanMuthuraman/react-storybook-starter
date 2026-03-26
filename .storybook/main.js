@@ -1,10 +1,15 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 module.exports = {
-  stories: ['../src/components/**/*.stories.@(js|jsx|mjs)'],
+  title: "Component Storybook",
+  stories: ["../src/components/**/*.stories.@(js|jsx|mjs)"],
+  staticDirs: ["../public"],
   addons: [
-    '@storybook/addon-webpack5-compiler-swc',
-    '@storybook/addon-a11y',
-    '@storybook/addon-docs',
+    "@storybook/addon-webpack5-compiler-swc",
+    "@storybook/addon-a11y",
+    "@storybook/addon-docs",
   ],
-  framework: '@storybook/react-webpack5',
+  framework: "@storybook/react-webpack5",
+  features: {
+    sidebarOnboardingChecklist: false,
+  },
 };
