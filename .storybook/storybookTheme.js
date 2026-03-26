@@ -4,7 +4,7 @@ const colors = require("../src/theme/colors.json");
 
 const brandMarkup = `
   <span style="display:flex;gap:10px;font-family:'Inter',sans-serif;color:${colors.storybookText};">
-    <img src="/react-logo.svg" alt="React" style="width:24px;height:24px;display:block;" />
+    <img src="/assets/react-logo.svg" alt="React" style="width:24px;height:24px;display:block;" />
     <span>
       <span>Component Storybook</span>
       <span>v${packageJson.version}</span>

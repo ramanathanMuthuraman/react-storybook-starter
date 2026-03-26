@@ -66,9 +66,10 @@ npm run build-storybook
   preview.js
   preview-head.html
   storybookTheme.js
+assets/
+  react-logo.svg
 public/
   index.html
-  react-logo.svg
 src/
   components/
     FeatureCard.jsx
@@ -102,6 +103,7 @@ This keeps the app UI and Storybook styleguide aligned without duplicating the p
 - The sidebar onboarding checklist is disabled in `.storybook/main.js`
 - Storybook branding is configured in `.storybook/storybookTheme.js` and `.storybook/manager.js`
 - Inter is loaded for both the Storybook manager and preview through `.storybook/manager-head.html` and `.storybook/preview-head.html`
+- The brand logo is served from `assets/react-logo.svg` through Storybook `staticDirs`
 - The generated static Storybook HTML still includes some default Storybook internals because those come from Storybook's own internal template
 
 ## Customizing the Starter
