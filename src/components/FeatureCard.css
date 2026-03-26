@@ -1,0 +1,38 @@
+.feature-card {
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(82, 96, 109, 0.12);
+  box-shadow: 0 22px 45px rgba(31, 41, 51, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.feature-card--highlight {
+  background: linear-gradient(135deg, #fff0d9 0%, #ffffff 100%);
+  border-color: rgba(159, 91, 45, 0.25);
+}
+
+.feature-card__tag {
+  display: inline-flex;
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #1f2933;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.feature-card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #52606d;
+  line-height: 1.65;
+}
