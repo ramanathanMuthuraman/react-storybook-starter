@@ -59,54 +59,55 @@ npm run build-storybook
 
 ```text
 .storybook/
-  main.js                Storybook main configuration
-  manager.js             Storybook manager theme setup
-  manager-head.html      Manager-only head markup (fonts, head customizations)
-  preview.js             Global preview parameters
-  preview-head.html      Preview iframe head markup
-  storybookTheme.js      Shared Storybook theme and preview parameters
+  main.js
+  manager.js
+  manager-head.html
+  preview.js
+  preview-head.html
+  storybookTheme.js
 public/
-  index.html             Webpack HTML template
-  react-logo.svg         Brand asset used by Storybook
+  index.html
+  react-logo.svg
 src/
   components/
-    FeatureCard.jsx      Sample component
-    FeatureCard.css      Sample component styles
-    FeatureCard.stories.js Sample Storybook story
+    FeatureCard.jsx
+    FeatureCard.css
+    FeatureCard.stories.js
   theme/
-    colors.json          Single source of truth for color tokens
-    themeVariables.js    Injects CSS custom properties from colors.json
-  App.jsx                Demo page content
-  index.js               React app entry point
-  styles.css             App-level styles
-webpack.config.js        Webpack configuration
-package.json             Scripts and dependencies
+    colors.json
+    themeVariables.js
+  App.jsx
+  index.js
+  styles.css
+webpack.config.js
+package.json
+README.md
 ```
 
 ## Theming
 
 This project uses a single shared source for color values:
 
-- [`src/theme/colors.json`](/Users/ramanathanm/Coder/storybook/src/theme/colors.json) holds the palette
-- [`src/theme/themeVariables.js`](/Users/ramanathanm/Coder/storybook/src/theme/themeVariables.js) converts those values into CSS variables at runtime
-- [`src/styles.css`](/Users/ramanathanm/Coder/storybook/src/styles.css) and [`src/components/FeatureCard.css`](/Users/ramanathanm/Coder/storybook/src/components/FeatureCard.css) consume those CSS variables
-- [`.storybook/storybookTheme.js`](/Users/ramanathanm/Coder/storybook/.storybook/storybookTheme.js) reads the same `colors.json` file for the Storybook manager and docs theme
+- `src/theme/colors.json` holds the palette
+- `src/theme/themeVariables.js` converts those values into CSS variables at runtime
+- `src/styles.css` and `src/components/FeatureCard.css` consume those CSS variables
+- `.storybook/storybookTheme.js` reads the same `colors.json` file for the Storybook manager and docs theme
 
 This keeps the app UI and Storybook styleguide aligned without duplicating the palette in two different places.
 
 ## Storybook Notes
 
-- The sidebar onboarding checklist is disabled in [`.storybook/main.js`](/Users/ramanathanm/Coder/storybook/.storybook/main.js)
-- Storybook branding is configured in [`.storybook/storybookTheme.js`](/Users/ramanathanm/Coder/storybook/.storybook/storybookTheme.js) and [`.storybook/manager.js`](/Users/ramanathanm/Coder/storybook/.storybook/manager.js)
-- Inter is loaded for both the Storybook manager and preview through [`.storybook/manager-head.html`](/Users/ramanathanm/Coder/storybook/.storybook/manager-head.html) and [`.storybook/preview-head.html`](/Users/ramanathanm/Coder/storybook/.storybook/preview-head.html)
-- The generated static Storybook HTML still includes some default Storybook internals, because those come from Storybook's own internal template
+- The sidebar onboarding checklist is disabled in `.storybook/main.js`
+- Storybook branding is configured in `.storybook/storybookTheme.js` and `.storybook/manager.js`
+- Inter is loaded for both the Storybook manager and preview through `.storybook/manager-head.html` and `.storybook/preview-head.html`
+- The generated static Storybook HTML still includes some default Storybook internals because those come from Storybook's own internal template
 
 ## Customizing the Starter
 
 ### Add a new component
 
 1. Create a component in `src/components/`
-2. Add its styles if needed
+2. Add styles if needed
 3. Add a `*.stories.js` file next to the component
 4. Storybook will pick it up automatically from `src/components/**/*.stories.js`
 
@@ -121,4 +122,4 @@ This keeps the app UI and Storybook styleguide aligned without duplicating the p
 - `dist/`: production Webpack build
 - `storybook-static/`: static Storybook build
 
-These folders are generated and are already ignored by Git.
+These folders are generated and ignored by Git.
