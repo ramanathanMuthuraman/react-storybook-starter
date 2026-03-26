@@ -9,7 +9,8 @@ A sample React project built with Webpack and plain JavaScript, with Storybook c
 - Babel
 - Storybook 10
 - JavaScript and JSX only
-- CSS with shared theme tokens
+- styled-components
+- Shared color tokens via `src/theme/colors.json`
 
 ## Getting Started
 
@@ -71,26 +72,27 @@ public/
 src/
   components/
     FeatureCard.jsx
-    FeatureCard.css
+    FeatureCard.style.js
     FeatureCard.stories.js
   theme/
     colors.json
-    themeVariables.js
   App.jsx
+  App.style.js
   index.js
-  styles.css
 webpack.config.js
 package.json
 README.md
 ```
 
-## Theming
+## Styling
 
-This project uses a single shared source for color values:
+The source folder uses `styled-components`, with style definitions split into dedicated `*.style.js` files.
 
-- `src/theme/colors.json` holds the palette
-- `src/theme/themeVariables.js` converts those values into CSS variables at runtime
-- `src/styles.css` and `src/components/FeatureCard.css` consume those CSS variables
+- `src/App.jsx` contains the page structure
+- `src/App.style.js` contains the app layout styles and global page reset through `createGlobalStyle`
+- `src/components/FeatureCard.jsx` contains the component render logic
+- `src/components/FeatureCard.style.js` contains the card styles
+- `src/theme/colors.json` is the single source of truth for the shared color palette
 - `.storybook/storybookTheme.js` reads the same `colors.json` file for the Storybook manager and docs theme
 
 This keeps the app UI and Storybook styleguide aligned without duplicating the palette in two different places.
@@ -107,7 +109,7 @@ This keeps the app UI and Storybook styleguide aligned without duplicating the p
 ### Add a new component
 
 1. Create a component in `src/components/`
-2. Add styles if needed
+2. Create a matching `*.style.js` file if the component has styled-components definitions
 3. Add a `*.stories.js` file next to the component
 4. Storybook will pick it up automatically from `src/components/**/*.stories.js`
 
@@ -115,7 +117,7 @@ This keeps the app UI and Storybook styleguide aligned without duplicating the p
 
 1. Edit `src/theme/colors.json`
 2. Restart the app or Storybook if needed
-3. Both the app and Storybook theme will reflect the updated values
+3. Both the source components and the Storybook theme will reflect the updated values
 
 ## Output Folders
 

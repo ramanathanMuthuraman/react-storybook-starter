@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import './FeatureCard.css';
+import { Card, Description, Tag, Title } from './FeatureCard.style';
 
 export default function FeatureCard({ title, description, tag, tone = 'default' }) {
   return (
-    <article className={`feature-card feature-card--${tone}`}>
-      <span className="feature-card__tag">{tag}</span>
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </article>
+    <Card $tone={tone}>
+      <Tag>{tag}</Tag>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+    </Card>
   );
 }
 

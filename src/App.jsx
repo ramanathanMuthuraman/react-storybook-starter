@@ -1,4 +1,13 @@
 import FeatureCard from './components/FeatureCard';
+import {
+  AppShell,
+  CardGrid,
+  Eyebrow,
+  GlobalStyle,
+  Hero,
+  HeroCopy,
+  HeroTitle,
+} from './App.style';
 
 const highlights = [
   {
@@ -20,25 +29,28 @@ const highlights = [
 
 export default function App() {
   return (
-    <main className="app-shell">
-      <section className="hero">
-        <p className="eyebrow">Sample Starter</p>
-        <h1>React + Webpack + Storybook</h1>
-        <p className="hero-copy">
-          This starter gives you a simple React application, a custom Webpack pipeline, and Storybook support for building UI pieces in isolation.
-        </p>
-      </section>
+    <>
+      <GlobalStyle />
+      <AppShell>
+        <Hero>
+          <Eyebrow>Sample Starter</Eyebrow>
+          <HeroTitle>React + Webpack + Storybook</HeroTitle>
+          <HeroCopy>
+            This starter gives you a simple React application, a custom Webpack pipeline, and Storybook support for building UI pieces in isolation.
+          </HeroCopy>
+        </Hero>
 
-      <section className="card-grid" aria-label="Project highlights">
-        {highlights.map((item) => (
-          <FeatureCard
-            key={item.title}
-            title={item.title}
-            description={item.description}
-            tag={item.tag}
-          />
-        ))}
-      </section>
-    </main>
+        <CardGrid aria-label="Project highlights">
+          {highlights.map((item) => (
+            <FeatureCard
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              tag={item.tag}
+            />
+          ))}
+        </CardGrid>
+      </AppShell>
+    </>
   );
 }
