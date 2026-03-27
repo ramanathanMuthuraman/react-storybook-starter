@@ -1,6 +1,6 @@
-const { create } = require("storybook/theming");
-const packageJson = require("../package.json");
-const colors = require("../src/theme/colors.json");
+const { create } = require('storybook/theming');
+const packageJson = require('../package.json');
+const colors = require('../src/theme/colors.json');
 
 const brandMarkup = `
   <span style="display:flex;gap:10px;font-family:'Inter',sans-serif;color:${colors.storybookText};">
@@ -13,7 +13,7 @@ const brandMarkup = `
 `;
 
 const storybookTheme = create({
-  base: "dark",
+  base: 'dark',
   fontBase: '"Inter", sans-serif',
   fontCode: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
   appBg: colors.storybookAppBg,
@@ -37,36 +37,9 @@ const storybookTheme = create({
   textInverseColor: colors.storybookText,
   textMutedColor: colors.storybookTextMuted,
   brandTitle: brandMarkup,
-  brandTarget: "_self",
+  brandTarget: '_self',
 });
 
-const previewParameters = {
-  layout: "centered",
-  backgrounds: {
-    default: "Canvas",
-    values: [
-      { name: "Canvas", value: colors.surfaceBase },
-      { name: "Muted Surface", value: colors.surfaceMuted },
-      { name: "Storybook Dark", value: colors.storybookAppBg },
-    ],
-  },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/i,
-    },
-  },
-  docs: {
-    theme: storybookTheme,
-  },
-  options: {
-    storySort: {
-      method: "alphabetical",
-    },
-  },
-};
-
 module.exports = {
-  previewParameters,
   storybookTheme,
 };

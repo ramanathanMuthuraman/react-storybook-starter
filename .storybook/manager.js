@@ -4,3 +4,9 @@ const { storybookTheme } = require('./storybookTheme');
 addons.setConfig({
   theme: storybookTheme,
 });
+
+addons.register('component-storybook/default-layout', (api) => {
+  setTimeout(() => {
+    api.togglePanel(false);
+  }, 0);
+});
